@@ -1,0 +1,41 @@
+@import "./assets/styles/variables.scss";
+
+
+body {
+  max-height: 100vh;
+  max-width: 100vh;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/OpenSans.ttf") format("truetype");
+}
+
+:root {
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+  background-color: $tg-theme-bg;
+  color: $tg-theme-text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $tg-theme-link;
+  cursor: pointer;
+}
+
+img {
+  opacity: 0.8;
+}
