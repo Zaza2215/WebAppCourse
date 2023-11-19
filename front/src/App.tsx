@@ -1,9 +1,21 @@
 import "./App.scss"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import NotFound from "./pages/NotFound.tsx"
+import Settings from "./pages/Settings.tsx"
 
 function App() {
     return (
         <>
-            <h1>Godbye World!</h1>
+            <BrowserRouter>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Settings/>}/>
+                    <Route
+                        path="*"
+                        element={<NotFound/>}/>
+                </Routes>
+            </BrowserRouter>
         </>
     )
 }
