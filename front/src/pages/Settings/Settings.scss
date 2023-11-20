@@ -1,0 +1,32 @@
+@import "../../assets/styles/variables.scss";
+
+.settings-menu {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    font-weight: $font-weight-semibold;
+    margin-bottom: 20px;
+    color: $tg-theme-subtitle-text;
+  }
+
+  .section {
+    margin-bottom: 30px;
+
+    &__title {
+      font-size: 14px;
+      color: $tg-theme-subtitle-text;
+      margin-bottom: 10px;
+      padding-inline-start: 15px;
+      font-weight: $font-weight-regular;
+    }
+
+    &__cards {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+  }
+}

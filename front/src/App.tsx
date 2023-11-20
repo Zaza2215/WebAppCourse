@@ -1,7 +1,7 @@
 import "./App.scss"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import NotFound from "./pages/NotFound.tsx"
-import Settings from "./pages/Settings.tsx"
+import Settings from "./pages/Settings/Settings.tsx"
 
 function App() {
     return (
