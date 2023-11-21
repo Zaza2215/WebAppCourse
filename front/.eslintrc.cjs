@@ -23,7 +23,7 @@ module.exports = {
         ],
         'react/prop-types': 0,
         'indent': ['error', 4],
-        'linebreak-style': 1,
+        // 'linebreak-style': 1,
         'quotes': ["error", "double"],
         "semi": ["error", "never"],
         "react/jsx-first-prop-new-line": ["error", "multiline"],

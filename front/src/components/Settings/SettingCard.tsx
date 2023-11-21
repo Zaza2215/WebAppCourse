@@ -3,7 +3,7 @@ import "./SettingCard.scss"
 import ArrowIcon from "../Icons/Icons.tsx"
 
 
-type SettingCardProps = {
+export type SettingCardProps = {
     title: string,
     value?: string | number,
     icon?: string,
