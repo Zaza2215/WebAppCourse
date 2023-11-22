@@ -1,0 +1,23 @@
+@import "@/assets/styles/variables.scss";
+
+.selection-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border: 1px solid $tg-theme-bg;
+  cursor: pointer;
+
+  &__text {
+    font-size: 14px;
+    color: $tg-theme-text;
+  }
+
+  &__tick {
+    width: 10px;
+    height: 6px;
+    rotate: -45deg;
+    border-bottom: 2px solid $tg-theme-accent;
+    border-left: 2px solid $tg-theme-accent;
+  }
+}

@@ -1,14 +1,20 @@
 import "./Settings.scss"
 import SettingSection from "../../components/Settings/SettingSection.tsx"
 import {ROUTERS} from "../../constants/routes.ts"
+import {modelProps} from "../../App.tsx"
 
-function Settings() {
+export type settingsProps = {
+    userModel: modelProps
+}
+
+
+function Settings({userModel}: settingsProps) {
 
     const modelData = [
         {
             title: "language model",
             icon: "./src/assets/icons/language-model.png",
-            value: "GPT-4",
+            value: userModel.verbose_name,
             to: ROUTERS.LANGUAGE_MODEL,
             ready: true
         },
