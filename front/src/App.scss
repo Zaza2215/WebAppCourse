@@ -16,6 +16,10 @@ body {
   scroll-behavior: smooth;
   background-color: $tg-theme-bg;
   color: $tg-theme-text;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 h1,
