@@ -15,14 +15,6 @@
   .section {
     margin-bottom: 30px;
 
-    &__title {
-      font-size: 14px;
-      color: $tg-theme-subtitle-text;
-      margin-bottom: 10px;
-      padding-inline-start: 15px;
-      font-weight: $font-weight-regular;
-    }
-
     &__cards {
       display: flex;
       flex-direction: column;

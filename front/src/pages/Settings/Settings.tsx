@@ -9,18 +9,21 @@ function Settings() {
             title: "language model",
             icon: "./src/assets/icons/language-model.png",
             value: "GPT-4",
-            to: ROUTERS.LANGUAGE_MODEL
+            to: ROUTERS.LANGUAGE_MODEL,
+            ready: true
         },
         {
             title: "custome instructions",
             icon: "./src/assets/icons/custom-instructions.png",
-            to: ROUTERS.CUSTOM_INSTRUCTIONS
+            to: ROUTERS.CUSTOM_INSTRUCTIONS,
+            ready: false
         },
         {
             title: "context window limit",
             icon: "./src/assets/icons/window-limit.png",
             value: 1000,
-            to: ROUTERS.CONTEXT_WINDOW_LIMIT
+            to: ROUTERS.CONTEXT_WINDOW_LIMIT,
+            ready: false
         }
     ]
 
@@ -29,19 +32,23 @@ function Settings() {
             title: "automatic speech",
             icon: "./src/assets/icons/auto-speech.png",
             value: "Off",
-            to: ROUTERS.AUTO_SPEECH
+            to: ROUTERS.AUTO_SPEECH,
+            ready: false
+
         },
         {
             title: "auto transcription",
             icon: "./src/assets/icons/auto-transcription.png",
             value: "Off",
-            to: ROUTERS.AUTO_TRANSCRIPTION
+            to: ROUTERS.AUTO_TRANSCRIPTION,
+            ready: false
         },
         {
             title: "single message",
             icon: "./src/assets/icons/single-message.png",
             value: "Off",
-            to: ROUTERS.SINGLE_MESSAGE
+            to: ROUTERS.SINGLE_MESSAGE,
+            ready: false
         }
     ]
 
@@ -50,7 +57,8 @@ function Settings() {
             title: "language",
             icon: "./src/assets/icons/language-interface.png",
             value: "English",
-            to: ROUTERS.LANGUAGE
+            to: ROUTERS.LANGUAGE,
+            ready: false
         }
     ]
 

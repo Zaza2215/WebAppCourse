@@ -6,6 +6,10 @@
   padding: 10px;
   border-radius: 8px;
 
+  &--disabled {
+    opacity: 0.2;
+  }
+
   &__left {
     display: flex;
     justify-content: start;

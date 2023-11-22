@@ -1,4 +1,5 @@
 import SettingCard, {SettingCardProps} from "./SettingCard.tsx"
+import SectionTitle from "./SectionTitle.tsx"
 
 type SettingSectionProps = {
     title: string,
@@ -9,7 +10,8 @@ type SettingSectionProps = {
 function SettingSection({title, data}: SettingSectionProps) {
     return (
         <section className="section settings-menu__section">
-            <h2 className="section__title uppercase letter-spacing">{title}</h2>
+            <SectionTitle
+                title={title}/>
             <div className="section__cards">
 
                 {
@@ -20,6 +22,7 @@ function SettingSection({title, data}: SettingSectionProps) {
                             icon={card.icon}
                             value={card.value}
                             to={card.to}
+                            ready={card.ready}
                         />)
                     })
                 }

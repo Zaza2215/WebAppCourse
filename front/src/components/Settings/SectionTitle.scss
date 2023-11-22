@@ -1,0 +1,9 @@
+@import "../../../src/assets/styles/variables.scss";
+
+.section-title {
+  font-size: 14px;
+  color: $tg-theme-subtitle-text;
+  margin-bottom: 10px;
+  padding-inline-start: 15px;
+  font-weight: $font-weight-regular;
+}
