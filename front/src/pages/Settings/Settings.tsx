@@ -2,13 +2,15 @@ import "./Settings.scss"
 import SettingSection from "../../components/Settings/SettingSection.tsx"
 import {ROUTERS} from "../../constants/routes.ts"
 import {modelProps} from "../../App.tsx"
+import {Language} from "../../constants/languages.ts"
 
 export type settingsProps = {
     userModel: modelProps
+    userLanguage: Language
 }
 
 
-function Settings({userModel}: settingsProps) {
+function Settings({userModel, userLanguage}: settingsProps) {
 
     const modelData = [
         {
@@ -62,9 +64,9 @@ function Settings({userModel}: settingsProps) {
         {
             title: "language",
             icon: "./src/assets/icons/language-interface.png",
-            value: "English",
+            value: userLanguage.name,
             to: ROUTERS.LANGUAGE,
-            ready: false
+            ready: true
         }
     ]
 

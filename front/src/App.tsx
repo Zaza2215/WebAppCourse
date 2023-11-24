@@ -5,6 +5,8 @@ import Settings from "./pages/Settings/Settings.tsx"
 import {ROUTERS} from "./constants/routes.ts"
 import LanguageModel from "./pages/LanguageModel/LanguageModel.tsx"
 import {useState} from "react"
+import LanguageSetting from "./pages/LanguageSetting/LanguageSetting.tsx"
+import {LANGUAGES} from "./constants/languages.ts"
 
 
 export type modelProps = {
@@ -35,6 +37,7 @@ function App() {
     ]
 
     const [userModel, setUserModel] = useState(models[0])
+    const [userLanguage, setUserLanguage] = useState(LANGUAGES[0])
 
     return (
         <>
@@ -43,13 +46,20 @@ function App() {
                     <Route
                         path="/"
                         element={<Settings
-                            userModel={userModel}/>}/>
+                            userModel={userModel}
+                            userLanguage={userLanguage}/>}/>
                     <Route
                         path={ROUTERS.LANGUAGE_MODEL}
                         element={<LanguageModel
                             models={models}
                             userModel={userModel}
                             setUserModel={setUserModel}/>}/>
+                    <Route
+                        path={ROUTERS.LANGUAGE}
+                        element={<LanguageSetting
+                            userLanguage={userLanguage}
+                            setUserLanguage={setUserLanguage}/>}
+                    />
                     <Route
                         path="*"
                         element={<NotFound/>}/>

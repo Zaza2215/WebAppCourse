@@ -8,4 +8,8 @@
   color: $tg-theme-hint;
   margin-top: 10px;
   padding-left: 10px;
+
+  &__text--destructive {
+    color: $tg-theme-destructive-text;
+  }
 }
