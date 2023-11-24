@@ -1,10 +1,11 @@
 import SectionTitle from "../../components/Settings/SectionTitle.tsx"
-import {BackButton, MainButton} from "@vkruglikov/react-telegram-web-app"
+import {MainButton} from "@vkruglikov/react-telegram-web-app"
 import {useNavigate} from "react-router-dom"
 import {modelProps} from "../../App.tsx"
 import {useState} from "react"
 import Description from "../../components/Desctiption/Description.tsx"
 import Selector from "../../components/Selection/Selector.tsx"
+import ReturnButton from "../../components/ReturnButton/ReturnButton.tsx"
 
 type languageModelProps = {
     userModel: modelProps
@@ -54,11 +55,7 @@ function LanguageModel({models, userModel, setUserModel}: languageModelProps) {
 
             </Description>
 
-            <BackButton
-                onClick={
-                    () => navigator(-1)
-                }
-            />
+            <ReturnButton/>
 
             {userModel.model_id !== selectedModel.model_id && <MainButton
                 onClick={saveSelected}

@@ -1,18 +1,10 @@
-// rsf
-
-import {BackButton} from "@vkruglikov/react-telegram-web-app"
-import {useNavigate} from "react-router-dom"
+import ReturnButton from "../components/ReturnButton/ReturnButton.tsx"
 
 function NotFound() {
-    const navigate = useNavigate()
     return (
         <>
             <h1>404 Not Found!</h1>
-
-            <BackButton
-                onClick={
-                    () => navigate(-1)
-                }/>
+            <ReturnButton/>
         </>
     )
 }

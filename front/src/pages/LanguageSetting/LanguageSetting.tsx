@@ -1,9 +1,10 @@
 import {LANGUAGES, Language} from "../../constants/languages.ts"
-import {BackButton, MainButton} from "@vkruglikov/react-telegram-web-app"
+import {MainButton} from "@vkruglikov/react-telegram-web-app"
 import {useNavigate} from "react-router-dom"
 import {useState} from "react"
 import Description from "../../components/Desctiption/Description.tsx"
 import Selector from "../../components/Selection/Selector.tsx"
+import ReturnButton from "../../components/ReturnButton/ReturnButton.tsx"
 
 type languageSettingProps = {
     userLanguage: Language
@@ -48,11 +49,7 @@ function LanguageSetting({userLanguage, setUserLanguage}: languageSettingProps) 
                 <p className="destructive">Controls the language of the interface in the bot.</p>
             </Description>
 
-            <BackButton
-                onClick={
-                    () => navigator(-1)
-                }
-            />
+            <ReturnButton/>
 
             {
                 userLanguage.code !== selectedLanguage.code && <MainButton
