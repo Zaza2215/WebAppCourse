@@ -48,11 +48,9 @@ function LanguageSetting({userLanguage, setUserLanguage}: languageSettingProps) 
 
             <Description
                 text={"This option does not control this interface yet"}
-                destructive={true}
-            />
-            <Description
-                text={"Controls the language of the interface in the bot."}
-            />
+                destructive={true}>
+                <p className="destructive">Controls the language of the interface in the bot.</p>
+            </Description>
 
             <BackButton
                 onClick={

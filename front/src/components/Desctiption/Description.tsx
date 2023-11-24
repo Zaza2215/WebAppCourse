@@ -10,7 +10,7 @@ type DescriptionProps = {
 }
 
 
-function Description({text, destructive, children}: DescriptionProps) {
+function Description({text, destructive = false, children}: DescriptionProps) {
     return (
         <>
             <div
