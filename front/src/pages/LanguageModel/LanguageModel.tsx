@@ -1,11 +1,10 @@
-import "./LanguageModel.scss"
 import SectionTitle from "../../components/Settings/SectionTitle.tsx"
 import {BackButton, MainButton} from "@vkruglikov/react-telegram-web-app"
 import {useNavigate} from "react-router-dom"
-import SelectionOption from "../../components/Selection/SelectionOption.tsx"
 import {modelProps} from "../../App.tsx"
 import {useState} from "react"
 import Description from "../../components/Desctiption/Description.tsx"
+import Selector from "../../components/Selection/Selector.tsx"
 
 type languageModelProps = {
     userModel: modelProps
@@ -34,28 +33,23 @@ function LanguageModel({models, userModel, setUserModel}: languageModelProps) {
                 title="Language Model"
                 type="secondary"/>
 
-            <div className="language-model__selector">
-
-                {
-                    models.map((model) => {
-                        return (
-                            <SelectionOption
-                                key={model.model_id}
-                                text={model.verbose_name}
-                                isSelected={model.model_id === selectedModel.model_id}
-                                onClick={() => {
-                                    handleClick(model)
-                                }}/>
-                        )
-                    })
-                }
-
-            </div>
+            <Selector
+                data={models.map((model) => {
+                    return {
+                        key: model.model_id,
+                        text: model.model_name,
+                        isSelected: model.model_id === selectedModel.model_id,
+                        onClick: () => {
+                            handleClick(model)
+                        }
+                    }
+                })}
+            />
 
             <Description text={"Chose the language model that ChatGPT will use to generate response"}>
                 <ul>
                     <li><strong>GPT 3</strong> provides good results at a lower cost.</li>
-                    <li><strong>GPT 4</strong> offers superior performance but at  a higher price.</li>
+                    <li><strong>GPT 4</strong> offers superior performance but at a higher price.</li>
                 </ul>
 
             </Description>

@@ -1,10 +1,9 @@
-import "./LanguageSetting.scss"
 import {LANGUAGES, Language} from "../../constants/languages.ts"
 import {BackButton, MainButton} from "@vkruglikov/react-telegram-web-app"
 import {useNavigate} from "react-router-dom"
-import SelectionOption from "../../components/Selection/SelectionOption.tsx"
 import {useState} from "react"
 import Description from "../../components/Desctiption/Description.tsx"
+import Selector from "../../components/Selection/Selector.tsx"
 
 type languageSettingProps = {
     userLanguage: Language
@@ -28,23 +27,20 @@ function LanguageSetting({userLanguage, setUserLanguage}: languageSettingProps) 
 
     return (
         <div className="language-setting">
-            <div className="language-setting__selector">
 
-                {
-                    LANGUAGES.map((language) => {
-                        return (
-                            <SelectionOption
-                                key={language.code}
-                                text={language.name}
-                                description={language.localName}
-                                isSelected={language.code === selectedLanguage.code}
-                                onClick={() => {
-                                    handleClick(language)
-                                }}/>
-                        )
-                    })
-                }
-            </div>
+            <Selector
+                data={LANGUAGES.map((lang) => {
+                    return {
+                        key: lang.code,
+                        text: lang.name,
+                        description: lang.localName,
+                        isSelected: lang.code === selectedLanguage.code,
+                        onClick: () => {
+                            handleClick(lang)
+                        }
+                    }
+                })}
+            />
 
             <Description
                 text={"This option does not control this interface yet"}
