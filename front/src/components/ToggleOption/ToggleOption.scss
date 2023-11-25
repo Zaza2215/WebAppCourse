@@ -1,0 +1,14 @@
+@import "@/assets/styles/variables.scss";
+
+.toggle-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: $tg-theme-secondary-bg;
+  border-radius: 8px;
+
+  &__text {
+    font-size: 14px;
+  }
+}
