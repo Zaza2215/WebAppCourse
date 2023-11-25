@@ -1,4 +1,3 @@
-import "./AutoTranscriptionSetting.scss"
 import ReturnButton from "../../components/ReturnButton/ReturnButton.tsx"
 import SectionTitle from "../../components/Settings/SectionTitle.tsx"
 import Description from "../../components/Desctiption/Description.tsx"
