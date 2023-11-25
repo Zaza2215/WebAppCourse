@@ -1,0 +1,28 @@
+@import "@/assets/styles/variables.scss";
+
+.switch {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: $tg-theme-bg;
+
+  width: 48px;
+  height: 24px;
+  border-radius: 15px;
+
+  &::before {
+    content: "";
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    background-color: $tg-theme-text;
+  }
+
+  &--checked {
+    background-color: $tg-theme-accent;
+
+    &::before {
+      transform: translateX(24px);
+    }
+  }
+}

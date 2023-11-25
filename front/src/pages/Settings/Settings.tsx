@@ -7,10 +7,11 @@ import {Language} from "../../constants/languages.ts"
 export type settingsProps = {
     userModel: modelProps
     userLanguage: Language
+    userAutoTranscription: boolean
 }
 
 
-function Settings({userModel, userLanguage}: settingsProps) {
+function Settings({userModel, userLanguage, userAutoTranscription}: settingsProps) {
 
     const modelData = [
         {
@@ -47,9 +48,9 @@ function Settings({userModel, userLanguage}: settingsProps) {
         {
             title: "auto transcription",
             icon: "./src/assets/icons/auto-transcription.png",
-            value: "Off",
+            value: userAutoTranscription ? "On" : "Off",
             to: ROUTERS.AUTO_TRANSCRIPTION,
-            ready: false
+            ready: true
         },
         {
             title: "single message",
