@@ -5,10 +5,13 @@
   align-items: center;
   cursor: pointer;
   background-color: $tg-theme-bg;
+  -webkit-tap-highlight-color: transparent;
 
   width: 48px;
   height: 24px;
   border-radius: 15px;
+
+  transition: background-color 0.1s ease 0.1s;
 
   &::before {
     content: "";
@@ -16,13 +19,16 @@
     width: 26px;
     height: 26px;
     background-color: $tg-theme-text;
+    transition: transform 0.6s;
   }
 
   &--checked {
+    transition: background-color 0.2s ease-out 0.2s;
     background-color: $tg-theme-accent;
 
     &::before {
       transform: translateX(24px);
+      transition: transform 0.6s;
     }
   }
 }
