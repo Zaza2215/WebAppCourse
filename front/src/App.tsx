@@ -9,6 +9,7 @@ import LanguageSetting from "./pages/LanguageSetting/LanguageSetting.tsx"
 import {LANGUAGES} from "./constants/languages.ts"
 import AutoTranscriptionSetting from "./pages/AutoTranscriptionSetting/AutoTranscriptionSetting.tsx"
 import AutomaticSpeech from "./pages/AutomaticSpeech/AutomaticSpeech.tsx"
+import SingleMessage from "./pages/SingleMessage/SingleMessage.tsx"
 
 
 export type modelProps = {
@@ -42,6 +43,7 @@ function App() {
     const [userLanguage, setUserLanguage] = useState(LANGUAGES[0])
     const [userAutoTranscription, setUserAutoTranscription] = useState(false)
     const [userAutomaticSpeech, setUserAutomaticSpeech] = useState(false)
+    const [userSingleMessage, setUserSingleMessage] = useState(false)
 
     return (
         <>
@@ -53,7 +55,8 @@ function App() {
                             userModel={userModel}
                             userLanguage={userLanguage}
                             userAutoTranscription={userAutoTranscription}
-                            userAutomaticSpeech={userAutomaticSpeech}/>}/>
+                            userAutomaticSpeech={userAutomaticSpeech}
+                            userSingleMessage={userSingleMessage}/>}/>
                     <Route
                         path={ROUTERS.LANGUAGE_MODEL}
                         element={<LanguageModel
@@ -71,6 +74,12 @@ function App() {
                         element={<AutoTranscriptionSetting
                             userAutoTranscription={userAutoTranscription}
                             setUserAutoTranscription={setUserAutoTranscription}/>}
+                    />
+                    <Route
+                        path={ROUTERS.SINGLE_MESSAGE}
+                        element={<SingleMessage
+                            userSingleMessage={userSingleMessage}
+                            setUserSingleMessage={setUserSingleMessage}/>}
                     />
                     <Route
                         path={ROUTERS.LANGUAGE}
