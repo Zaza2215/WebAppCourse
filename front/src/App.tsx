@@ -8,6 +8,7 @@ import {useState} from "react"
 import LanguageSetting from "./pages/LanguageSetting/LanguageSetting.tsx"
 import {LANGUAGES} from "./constants/languages.ts"
 import AutoTranscriptionSetting from "./pages/AutoTranscriptionSetting/AutoTranscriptionSetting.tsx"
+import AutomaticSpeech from "./pages/AutomaticSpeech/AutomaticSpeech.tsx"
 
 
 export type modelProps = {
@@ -40,6 +41,7 @@ function App() {
     const [userModel, setUserModel] = useState(models[0])
     const [userLanguage, setUserLanguage] = useState(LANGUAGES[0])
     const [userAutoTranscription, setUserAutoTranscription] = useState(false)
+    const [userAutomaticSpeech, setUserAutomaticSpeech] = useState(false)
 
     return (
         <>
@@ -50,7 +52,8 @@ function App() {
                         element={<Settings
                             userModel={userModel}
                             userLanguage={userLanguage}
-                            userAutoTranscription={userAutoTranscription}/>}/>
+                            userAutoTranscription={userAutoTranscription}
+                            userAutomaticSpeech={userAutomaticSpeech}/>}/>
                     <Route
                         path={ROUTERS.LANGUAGE_MODEL}
                         element={<LanguageModel
@@ -58,16 +61,22 @@ function App() {
                             userModel={userModel}
                             setUserModel={setUserModel}/>}/>
                     <Route
-                        path={ROUTERS.LANGUAGE}
-                        element={<LanguageSetting
-                            userLanguage={userLanguage}
-                            setUserLanguage={setUserLanguage}/>}
+                        path={ROUTERS.AUTO_SPEECH}
+                        element={<AutomaticSpeech
+                            userAutomaticSpeech={userAutomaticSpeech}
+                            setUserAutomaticSpeech={setUserAutomaticSpeech}/>}
                     />
                     <Route
                         path={ROUTERS.AUTO_TRANSCRIPTION}
                         element={<AutoTranscriptionSetting
                             userAutoTranscription={userAutoTranscription}
                             setUserAutoTranscription={setUserAutoTranscription}/>}
+                    />
+                    <Route
+                        path={ROUTERS.LANGUAGE}
+                        element={<LanguageSetting
+                            userLanguage={userLanguage}
+                            setUserLanguage={setUserLanguage}/>}
                     />
                     <Route
                         path="*"

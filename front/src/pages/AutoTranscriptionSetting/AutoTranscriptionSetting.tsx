@@ -14,6 +14,7 @@ function AutoTranscriptionSetting({userAutoTranscription, setUserAutoTranscripti
             <SectionTitle title="auto transcription"/>
 
             <ToggleOption
+                text={"Automatic Speech Recognition"}
                 isChecked={userAutoTranscription}
                 setIsChecked={setUserAutoTranscription}/>
 

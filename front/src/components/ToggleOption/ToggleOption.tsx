@@ -2,15 +2,16 @@ import "./ToggleOption.scss"
 import Switch from "../../components/Switch/Switch.tsx"
 
 type ToggleOptionProps = {
+    text: string
     isChecked: boolean
     setIsChecked: (isChecked: boolean) => void
 }
 
-function ToggleOption({isChecked, setIsChecked}: ToggleOptionProps) {
+function ToggleOption({text, isChecked, setIsChecked}: ToggleOptionProps) {
     return (
         <div className="toggle-option">
             <div className="toggle-option__text">
-                Automatic Speech Recognition
+                {text}
             </div>
             <Switch
                 isChecked={isChecked}
