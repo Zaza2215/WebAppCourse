@@ -4,33 +4,5 @@
   display: flex;
   flex-direction: column;
   background: $tg-theme-bg;
-
-  &__textarea {
-    background: $tg-theme-secondary-bg;
-    border-radius: 12px;
-    margin: 2px;
-    padding: 12px;
-    font-size: 12px;
-    font-weight: 400;
-    color: $tg-theme-text;
-    resize: none;
-    height: 140px;
-    border: none;
-    outline: none;
-    font-family: Open Sans, sans-serif;
-    //box-sizing: border-box;
-  }
-
-  &__textarea:focus {
-    border: 2px solid $tg-theme-accent;
-    margin: 0;
-  }
-
-  &__text {
-    color: var(--tg-theme-subtitle-text-color);
-    font-size: 13px;
-    font-weight: 400;
-    margin-bottom: 10px;
-    padding-inline-start: 15px;
-  }
+  gap: 20px;
 }

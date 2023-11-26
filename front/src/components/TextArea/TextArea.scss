@@ -1,0 +1,36 @@
+@import "@/assets/styles/variables.scss";
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+  background: $tg-theme-bg;
+
+  &__textarea {
+    background: $tg-theme-secondary-bg;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 400;
+    color: $tg-theme-text;
+    resize: none;
+    height: 120px;
+    border: none;
+    outline: none;
+    font-family: Open Sans, sans-serif;
+    margin: 2px;
+  }
+
+  &__textarea:focus {
+    margin: 0;
+    border: 2px solid $tg-theme-accent;
+  }
+}
+
+
+.textarea__header {
+  color: $tg-theme-subtitle-text;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 4px 0;
+  padding-inline-start: 15px;
+}

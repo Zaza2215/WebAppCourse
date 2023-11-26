@@ -3,6 +3,7 @@ import {useState} from "react"
 import ReturnButton from "../../components/ReturnButton/ReturnButton.tsx"
 import Description from "../../components/Desctiption/Description.tsx"
 import {MainButton} from "@vkruglikov/react-telegram-web-app"
+import TextArea from "../../components/TextArea/TextArea.tsx"
 
 type CustomInstructionProps = {
     userCustomInstructionsResponse: string
@@ -32,24 +33,23 @@ function CustomInstruction(
     return (
         <div className="custom-instruction">
 
-            <p className="custom-instruction__text">What Would You Like ChatGPT To Know About You To
-                Provide Better Responses?</p>
-            <textarea
-                className="custom-instruction__textarea"
+            <TextArea
+                header="What Would You Like ChatGPT To Know About You To
+                Provide Better Responses?"
+                value={userCustomInstructionsResponse}
+                setValue={setLifeCustomInstructionsResponse}
                 placeholder="Thought starters:
 - Where are you from?
 - What do you do for work?
 - What are your hobbies and interests?
 - What are you passionate about?
 - What are your goals in life?"
-                spellCheck={true}
-                onChange={event => setLifeCustomInstructionsResponse(event.target.value)}>
-                {userCustomInstructionsResponse}
-            </textarea>
+            />
 
-            <p className="custom-instruction__text">How Would You Like ChatGPT To Respond?</p>
-            <textarea
-                className="custom-instruction__textarea"
+            <TextArea
+                header="How Would You Like ChatGPT To Respond?"
+                value={userCustomInstructionsRespond}
+                setValue={setLifeCustomInstructionsRespond}
                 placeholder="Thought starters:
 - How formal or casual should ChatGPT be?
 - How long or short should ChatGPT's responses be?
@@ -57,9 +57,8 @@ function CustomInstruction(
 - Should ChatGPT use emojis?
 - Should ChatGPT have opinions on topic or be neutral?
 "
-                onChange={event => setLifeCustomInstructionsRespond(event.target.value)}>
-                {userCustomInstructionsRespond}
-            </textarea>
+            />
+
 
             <Description
                 text="This feature allows ChatGPT to feel more personal and
