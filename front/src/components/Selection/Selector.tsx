@@ -1,7 +1,7 @@
 import "./Selector.scss"
 import SelectionOption from "./SelectionOption.tsx"
 
-type dataSelectorProps = {
+export type dataSelectorProps = {
     key: string | number
     text: string
     description?: string

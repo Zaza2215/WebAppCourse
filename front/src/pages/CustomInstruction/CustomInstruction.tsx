@@ -5,58 +5,43 @@ import Description from "../../components/Desctiption/Description.tsx"
 import {MainButton} from "@vkruglikov/react-telegram-web-app"
 import TextArea from "../../components/TextArea/TextArea.tsx"
 
-type CustomInstructionProps = {
-    userCustomInstructionsResponse: string
-    setUserCustomInstructionsResponse: (userCustomInstructionsResponse: string) => void
-    userCustomInstructionsRespond: string
-    setUserCustomInstructionsRespond: (userCustomInstructionsResponde: string) => void
+
+export type TextAreaProps = {
+    userTA: string
+    setUserTA: (userTA: string) => void
+    header: string
+    placeholder: string
 }
 
-function CustomInstruction(
-    {
-        userCustomInstructionsResponse,
-        setUserCustomInstructionsResponse,
-        userCustomInstructionsRespond,
-        setUserCustomInstructionsRespond
-    }: CustomInstructionProps) {
+type CustomInstructionProps = {
+    data: TextAreaProps[]
+}
 
-    const [lifeCustomInstructionsResponse, setLifeCustomInstructionsResponse] = useState(userCustomInstructionsResponse)
-    const [lifeCustomInstructionsRespond, setLifeCustomInstructionsRespond] = useState(userCustomInstructionsRespond)
+function CustomInstruction({data}: CustomInstructionProps) {
+
+    const [lifeCustomInstructionsResponse, setLifeCustomInstructionsResponse] = useState(data[0].userTA)
+    const [lifeCustomInstructionsRespond, setLifeCustomInstructionsRespond] = useState(data[1].userTA)
 
     function save() {
-        console.log(lifeCustomInstructionsResponse)
-        setUserCustomInstructionsResponse(lifeCustomInstructionsResponse)
-        console.log(userCustomInstructionsResponse)
-        setUserCustomInstructionsRespond(lifeCustomInstructionsRespond)
+        data[0].setUserTA(lifeCustomInstructionsResponse)
+        data[1].setUserTA(lifeCustomInstructionsRespond)
     }
 
     return (
         <div className="custom-instruction">
 
             <TextArea
-                header="What Would You Like ChatGPT To Know About You To
-                Provide Better Responses?"
-                value={userCustomInstructionsResponse}
+                header={data[0].header}
+                value={data[0].userTA}
                 setValue={setLifeCustomInstructionsResponse}
-                placeholder="Thought starters:
-- Where are you from?
-- What do you do for work?
-- What are your hobbies and interests?
-- What are you passionate about?
-- What are your goals in life?"
+                placeholder={data[0].placeholder}
             />
 
             <TextArea
-                header="How Would You Like ChatGPT To Respond?"
-                value={userCustomInstructionsRespond}
+                header={data[1].header}
+                value={data[1].userTA}
                 setValue={setLifeCustomInstructionsRespond}
-                placeholder="Thought starters:
-- How formal or casual should ChatGPT be?
-- How long or short should ChatGPT's responses be?
-- How do you want to be addressed?
-- Should ChatGPT use emojis?
-- Should ChatGPT have opinions on topic or be neutral?
-"
+                placeholder={data[1].placeholder}
             />
 
 
@@ -82,9 +67,9 @@ function CustomInstruction(
             <ReturnButton/>
 
             {
-                ((lifeCustomInstructionsResponse !== userCustomInstructionsResponse)
+                ((lifeCustomInstructionsResponse !== data[0].userTA)
                     ||
-                    (lifeCustomInstructionsRespond !== userCustomInstructionsRespond))
+                    (lifeCustomInstructionsRespond !== data[1].userTA))
                 &&
                 <MainButton
                     onClick={save}

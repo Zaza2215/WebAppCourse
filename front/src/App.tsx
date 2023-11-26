@@ -11,6 +11,7 @@ import AutoTranscriptionSetting from "./pages/AutoTranscriptionSetting/AutoTrans
 import AutomaticSpeech from "./pages/AutomaticSpeech/AutomaticSpeech.tsx"
 import SingleMessage from "./pages/SingleMessage/SingleMessage.tsx"
 import CustomInstruction from "./pages/CustomInstruction/CustomInstruction.tsx"
+import {TextAreaProps} from "./pages/CustomInstruction/CustomInstruction.tsx"
 
 
 export type modelProps = {
@@ -50,6 +51,31 @@ function App() {
     const [userCustomInstructionsResponse, setUserCustomInstructionsResponse] = useState("")
     const [userCustomInstructionsRespond, setUserCustomInstructionsRespond] = useState("")
 
+    const CustomInstructionData: TextAreaProps[] = [
+        {
+            userTA: userCustomInstructionsResponse,
+            setUserTA: setUserCustomInstructionsResponse,
+            header: "What Would You Like ChatGPT To Know About You To Provide Better Responses?",
+            placeholder: "Thought starters:\n" +
+                "- Where are you from?\n" +
+                "- What do you do for work?\n" +
+                "- What are your hobbies and interests?\n" +
+                "- What are you passionate about?\n" +
+                "- What are your goals in life?"
+        },
+        {
+            userTA: userCustomInstructionsRespond,
+            setUserTA: setUserCustomInstructionsRespond,
+            header: "How Would You Like ChatGPT To Respond?",
+            placeholder: "Thought starters:\n" +
+                "- How formal or casual should ChatGPT be?\n" +
+                "- How long or short should ChatGPT's responses be?\n" +
+                "- How do you want to be addressed?\n" +
+                "- Should ChatGPT use emojis?\n" +
+                "- Should ChatGPT have opinions on topic or be neutral?"
+        }
+    ]
+
     return (
         <>
             <BrowserRouter>
@@ -71,10 +97,7 @@ function App() {
                     <Route
                         path={ROUTERS.CUSTOM_INSTRUCTIONS}
                         element={<CustomInstruction
-                            userCustomInstructionsResponse={userCustomInstructionsResponse}
-                            setUserCustomInstructionsResponse={setUserCustomInstructionsResponse}
-                            userCustomInstructionsRespond={userCustomInstructionsRespond}
-                            setUserCustomInstructionsRespond={setUserCustomInstructionsRespond}
+                            data={CustomInstructionData}
                         />}/>
                     <Route
                         path={ROUTERS.AUTO_SPEECH}
