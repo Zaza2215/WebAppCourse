@@ -33,7 +33,7 @@ function Settings({
             title: "custome instructions",
             icon: "./src/assets/icons/custom-instructions.png",
             to: ROUTERS.CUSTOM_INSTRUCTIONS,
-            ready: false
+            ready: true
         },
         {
             title: "context window limit",

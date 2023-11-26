@@ -10,6 +10,7 @@ import {LANGUAGES} from "./constants/languages.ts"
 import AutoTranscriptionSetting from "./pages/AutoTranscriptionSetting/AutoTranscriptionSetting.tsx"
 import AutomaticSpeech from "./pages/AutomaticSpeech/AutomaticSpeech.tsx"
 import SingleMessage from "./pages/SingleMessage/SingleMessage.tsx"
+import CustomInstruction from "./pages/CustomInstruction/CustomInstruction.tsx"
 
 
 export type modelProps = {
@@ -45,6 +46,10 @@ function App() {
     const [userAutomaticSpeech, setUserAutomaticSpeech] = useState(false)
     const [userSingleMessage, setUserSingleMessage] = useState(false)
 
+    // Custom Insturctions
+    const [userCustomInstructionsResponse, setUserCustomInstructionsResponse] = useState("")
+    const [userCustomInstructionsRespond, setUserCustomInstructionsRespond] = useState("")
+
     return (
         <>
             <BrowserRouter>
@@ -63,6 +68,14 @@ function App() {
                             models={models}
                             userModel={userModel}
                             setUserModel={setUserModel}/>}/>
+                    <Route
+                        path={ROUTERS.CUSTOM_INSTRUCTIONS}
+                        element={<CustomInstruction
+                            userCustomInstructionsResponse={userCustomInstructionsResponse}
+                            setUserCustomInstructionsResponse={setUserCustomInstructionsResponse}
+                            userCustomInstructionsRespond={userCustomInstructionsRespond}
+                            setUserCustomInstructionsRespond={setUserCustomInstructionsRespond}
+                        />}/>
                     <Route
                         path={ROUTERS.AUTO_SPEECH}
                         element={<AutomaticSpeech
