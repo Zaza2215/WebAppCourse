@@ -1,6 +1,8 @@
 import "./CustomInstruction.scss"
+import {useState} from "react"
 import ReturnButton from "../../components/ReturnButton/ReturnButton.tsx"
 import Description from "../../components/Desctiption/Description.tsx"
+import {MainButton} from "@vkruglikov/react-telegram-web-app"
 
 type CustomInstructionProps = {
     userCustomInstructionsResponse: string
@@ -17,8 +19,19 @@ function CustomInstruction(
         setUserCustomInstructionsRespond
     }: CustomInstructionProps) {
 
+    const [lifeCustomInstructionsResponse, setLifeCustomInstructionsResponse] = useState(userCustomInstructionsResponse)
+    const [lifeCustomInstructionsRespond, setLifeCustomInstructionsRespond] = useState(userCustomInstructionsRespond)
+
+    function save() {
+        console.log(lifeCustomInstructionsResponse)
+        setUserCustomInstructionsResponse(lifeCustomInstructionsResponse)
+        console.log(userCustomInstructionsResponse)
+        setUserCustomInstructionsRespond(lifeCustomInstructionsRespond)
+    }
+
     return (
         <div className="custom-instruction">
+
             <p className="custom-instruction__text">What Would You Like ChatGPT To Know About You To
                 Provide Better Responses?</p>
             <textarea
@@ -29,8 +42,11 @@ function CustomInstruction(
 - What are your hobbies and interests?
 - What are you passionate about?
 - What are your goals in life?"
-                spellCheck={true}>
+                spellCheck={true}
+                onChange={event => setLifeCustomInstructionsResponse(event.target.value)}>
+                {userCustomInstructionsResponse}
             </textarea>
+
             <p className="custom-instruction__text">How Would You Like ChatGPT To Respond?</p>
             <textarea
                 className="custom-instruction__textarea"
@@ -40,8 +56,9 @@ function CustomInstruction(
 - How do you want to be addressed?
 - Should ChatGPT use emojis?
 - Should ChatGPT have opinions on topic or be neutral?
-">
-
+"
+                onChange={event => setLifeCustomInstructionsRespond(event.target.value)}>
+                {userCustomInstructionsRespond}
             </textarea>
 
             <Description
@@ -64,6 +81,17 @@ function CustomInstruction(
             </Description>
 
             <ReturnButton/>
+
+            {
+                ((lifeCustomInstructionsResponse !== userCustomInstructionsResponse)
+                    ||
+                    (lifeCustomInstructionsRespond !== userCustomInstructionsRespond))
+                &&
+                <MainButton
+                    onClick={save}
+                    text="Save"/>
+            }
+
         </div>
     )
 }
